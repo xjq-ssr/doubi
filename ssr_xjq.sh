@@ -1167,9 +1167,9 @@ Start_SSR(){
 	[[ ! -z ${PID} ]] && View_User
 }
 Start_SSR_0(){
-	systemctl status ssr
-	systemctl start ssr
-	systemctl status ssr
+	/usr/bin/systemctl status ssr
+	/usr/bin/systemctl start ssr
+	/usr/bin/systemctl status ssr
 }
 Stop_SSR(){
 	SSR_installation_status
