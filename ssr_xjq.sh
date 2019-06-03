@@ -702,7 +702,7 @@ Install_SSR(){
 	echo -e "${Info} 开始保存 iptables防火墙规则..."
 	Save_iptables
 	echo -e "${Info} 所有步骤 安装完毕，开始启动 ShadowsocksR服务端..."
-	Start_SSR
+	Start_SSR_0
 }
 Update_SSR(){
 	SSR_installation_status
@@ -1165,6 +1165,11 @@ Start_SSR(){
 	/etc/init.d/ssr start
 	check_pid
 	[[ ! -z ${PID} ]] && View_User
+}
+Start_SSR_0(){
+	systemctl status ssr
+	systemctl start ssr
+	systemctl status ssr
 }
 Stop_SSR(){
 	SSR_installation_status
