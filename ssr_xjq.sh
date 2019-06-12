@@ -616,7 +616,7 @@ Debian_apt(){
 # 下载 ShadowsocksR
 Download_SSR(){
 	cd "/usr/local/"
-	wget -N --no-check-certificate "https://github.com/xjq/shadowsocksr/archive/manyuser.zip"
+	wget -N --no-check-certificate "https://github.com/xjq-ssr/shadowsocksr/archive/manyuser.zip"
 	#git config --global http.sslVerify false
 	#env GIT_SSL_NO_VERIFY=true git clone -b manyuser https://github.com/ToyoDAdoubiBackup/shadowsocksr.git
 	#[[ ! -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR服务端 下载失败 !" && exit 1
@@ -633,14 +633,14 @@ Download_SSR(){
 }
 Service_SSR(){
 	if [[ ${release} = "centos" ]]; then
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/xjq/doubi/master/service/ssr_centos -O /etc/init.d/ssr; then
+		if ! wget --no-check-certificate https://raw.githubusercontent.com/xjq-ssr/doubi/master/service/ssr_centos -O /etc/init.d/ssr; then
 			echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/ssr
 		chkconfig --add ssr
 		chkconfig ssr on
 	else
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/xjq/doubi/master/service/ssr_debian -O /etc/init.d/ssr; then
+		if ! wget --no-check-certificate https://raw.githubusercontent.com/xjq-ssr/doubi/master/service/ssr_debian -O /etc/init.d/ssr; then
 			echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
 		fi
 		chmod +x /etc/init.d/ssr
